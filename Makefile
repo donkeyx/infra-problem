@@ -7,6 +7,10 @@ STATIC_ARCHIVE=$(BUILD_DIR)/static.tgz
 INSTALL_TARGETS=$(addsuffix .install, $(LIBS))
 APP_JARS=$(addprefix $(BUILD_DIR)/, $(addsuffix .jar, $(APPS)))
 
+# FIXME: this will allow the date string to work with
+# different timezones.
+export TZ:="Europe/London"
+
 all: $(BUILD_DIR) $(APP_JARS) $(STATIC_ARCHIVE)
 
 libs: $(INSTALL_TARGETS)
